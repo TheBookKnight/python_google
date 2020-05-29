@@ -49,7 +49,7 @@ class SearchTest(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.close()
         cls.driver.quit()
-        print("Test Completed")
+        print("Search Tests Completed")
 
 
 if __name__ == '__main__':

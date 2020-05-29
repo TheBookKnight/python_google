@@ -5,3 +5,8 @@ class Locators:
     search_icon_class = "Tg7LZd"
     search_results_stats_id = "result-stats"
     im_feeling_lucky_btn_name = "btnI"
+    email_input_class = "whsOnd zHQkBf"
+    next_btn_id = "identifierNext"
+    sign_in_error_class = "o6cuMc"
+    forgot_email_xpath = "//div[@class='PrDSKc']/button"
+    forgot_email_directions_xpath = "//div[@class='Y4dIwd']/span"
