@@ -1,22 +1,28 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+import unittest
 
-# webdriver manager installs
-driver = webdriver.Chrome(ChromeDriverManager().install())
+class SearchTest(unittest.TestCase):
 
-driver.implicitly_wait(10)
-driver.maximize_window()
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = webdriver.Chrome(ChromeDriverManager().install())
+        cls.driver.implicitly_wait(10)
+        cls.driver.maximize_window()
 
-driver.get("https://www.google.com/")
+    def test_search(self):
+        self.driver.get("https://www.google.com/")
+        self.driver.find_element_by_name("q").send_keys("Google")
+        self.driver.find_element_by_name("btnK").click()
+        time.sleep(2)
 
-driver.find_element_by_name("q").send_keys("Google")
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.close()
+        cls.driver.quit()
+        print("Test Completed")
 
-driver.find_element_by_name("btnK").click()
-
-time.sleep(2)
-
-driver.close()
-driver.quit()
-
-print("Test Completed")
+# allows you to run python tests by "python <file_name>"
+if __name__ == '__main__':
+    unittest.main()
