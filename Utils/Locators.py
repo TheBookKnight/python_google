@@ -1,4 +1,4 @@
-class Locators():
+class Locators:
     search_textbox_name = "q"
     sign_in_btn_id = "gb_70"
     search_btn_name = "btnK"

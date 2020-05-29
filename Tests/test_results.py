@@ -2,7 +2,6 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import unittest
 
-from Pages.SearchPage import SearchPage
 from Pages.ResultsPage import ResultsPage
 
 
@@ -11,7 +10,7 @@ class ResultsTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(ChromeDriverManager().install())
-        cls.driver.implicitly_wait(10)
+        cls.driver.implicitly_wait(5)
         cls.driver.maximize_window()
 
     def test_enterSearchQueryStaysInResults(self):
@@ -23,6 +22,14 @@ class ResultsTest(unittest.TestCase):
         self.assertRegex(results_page.get_stats_from_results(),
                          "(.*)(results \\()(.*)(seconds)(\\))",
                          "Given search query, when you click search icon, then it SHOULD remain on result stats ")
+
+    def test_signInDisplaysByDefault(self):
+        driver = self.driver
+        results_page = ResultsPage(driver)
+        results_page.go_to_results_page_for_query("Google")
+        self.assertEqual(driver.find_element_by_link_text("Sign in").text,
+                         "Sign in",
+                         "By default, when on Results page without sign in token, then you SHOULD see the Sign In Page")
 
     @classmethod
     def tearDownClass(cls):

@@ -13,6 +13,7 @@ class ResultsPage:
         self.search_textbox = Locators.search_textbox_name
         self.search_icon = Locators.search_icon_class
         self.search_result_stats = Locators.search_results_stats_id
+        self.sign_in = Locators.sign_in_btn_id
 
     def go_to_results_page_for_query(self, query):
         self.driver.get("http://google.com/search?q="+query)
