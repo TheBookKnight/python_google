@@ -37,3 +37,12 @@ So here's what I did:
 3. Refactor my current test script to use SearchPage
 
 Now it's easier to read
+
+## Step 4: Add more tests
+I added more tests. To run all the tests in the file, right-click the class name and run them.
+Since I'm testing on Google.com, I added an Explicit Wait since searching queries could take time to appear.
+
+### Notes
+- Create an explicit wait from Python's [WebDriverWait](https://www.techbeamers.com/selenium-webdriver-waits-python/ )
+    - more [StackOverflow details](https://stackoverflow.com/questions/26566799/wait-until-page-is-loaded-with-selenium-webdriver-for-python)
+    - explicit waits will wait until the element is present before proceeding to next step 
