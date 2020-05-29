@@ -3,6 +3,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import unittest
 
+from Pages.SearchPage import SearchPage
+
+
 class SearchTest(unittest.TestCase):
 
     @classmethod
@@ -12,9 +15,11 @@ class SearchTest(unittest.TestCase):
         cls.driver.maximize_window()
 
     def test_search(self):
-        self.driver.get("https://www.google.com/")
-        self.driver.find_element_by_name("q").send_keys("Google")
-        self.driver.find_element_by_name("btnK").click()
+        driver = self.driver
+        searchPage = SearchPage(driver)
+        searchPage.go_to_home_page()
+        searchPage.enter_search_query("Google")
+        searchPage.click_search()
         time.sleep(2)
 
     @classmethod

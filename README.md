@@ -2,6 +2,8 @@
 
 Note: I used [PyCharm IDE](https://www.jetbrains.com/pycharm/) as it's easy to import necessary libraries and has an isolated virtual environment.
 
+It also has linting rules to ensure what you code follows PEP 8
+
 ## Step 1: Ensure correct dependencies are installed
 
 See the attached *requirements.txt*
@@ -23,3 +25,15 @@ Setup your test script as a unit test file by the following:
     - you can see results in your PyCharm IDE below
 
  
+## Step 3: Implement Page Object Model
+Page Object Model makes it easier to: 
+1. Build automation scripts quickly. If someone defined the page object and methods already, you can use it.
+2. More developer friendly. It's easier to understand the test behavior at a higher level
+3. Easier maintainance so if several page objects change, you can edit it quickly
+
+So here's what I did:
+1. Create a Locators file so centralize page object definitions
+2. Create a SearchPage to define Webdriver actions in a higher level so it's easier to understand
+3. Refactor my current test script to use SearchPage
+
+Now it's easier to read
